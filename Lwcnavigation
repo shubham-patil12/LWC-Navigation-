@@ -1,0 +1,42 @@
+========navigateToAccountListView.html============
+
+<template>
+    <div class="slds-box">
+        <lightning-card title="Navigate to Account List view">
+            <lightning-button label="Go To Account list view" onclick={NavigateToAccList}></lightning-button>
+        </lightning-card>
+    </div>    
+</template>
+========navigateToAccountListView.js============
+
+import { LightningElement } from 'lwc';
+import { NavigationMixin } from 'lightning/navigation';
+export default class NavigateToAccountListView extends NavigationMixin(LightningElement) {
+    NavigateToAccList(){
+        this[NavigationMixin.Navigate]({
+            type:'standard__objectPage',
+            attributes:{
+                objectApiName:'Account',
+                actionName:'list'
+            },
+            state:{
+                filterName:'Recent'
+            }
+
+        });
+    }
+}
+
+
+================navigateToAccountListView.js-meta.xml===========
+
+<?xml version="1.0" encoding="UTF-8"?>
+<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>62.0</apiVersion>
+    <isExposed>true</isExposed>
+    <targets>
+        <target>lightning__AppPage</target>
+        <target>lightning__RecordPage</target>
+        <target>lightning__HomePage</target>
+    </targets>
+</LightningComponentBundle>>
